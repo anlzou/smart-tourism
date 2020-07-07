@@ -45,7 +45,9 @@
     <mvc:resources location="/assets/images/" mapping="/assets/images/**"/>
     <mvc:resources location="/assets/easyui/css/" mapping="/assets/easyui/css/**"/>
     <mvc:resources location="/assets/easyui/js/" mapping="/assets/easyui/js/**"/>
-
+    <!--  分页  -->
+    <mvc:resources location="/assets/fenye/" mapping="/assets/fenye/**"/>
+    <mvc:resources location="/assets/fenye/" mapping="/assets/fenye/**"/>
     <!-- 视图解析器 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver"

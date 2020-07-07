@@ -45,6 +45,10 @@
     <mvc:resources location="/assets/images/" mapping="/assets/images/**"/>
     <mvc:resources location="/assets/easyui/css/" mapping="/assets/easyui/css/**"/>
     <mvc:resources location="/assets/easyui/js/" mapping="/assets/easyui/js/**"/>
+    <!--  分页  -->
+    <mvc:resources location="/assets/fenye/" mapping="/assets/fenye/**"/>
+    <!--  前端动态交互  -->
+    <mvc:resources location="/assets/ajax/" mapping="/assets/ajax/**"/>
 
     <!-- 视图解析器 -->
     <bean
