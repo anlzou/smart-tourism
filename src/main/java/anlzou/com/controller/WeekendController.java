@@ -39,10 +39,15 @@ public class WeekendController {
      * @Date：2020/7/7 15:55
      * @Descritpion：根据城市名称查询title,address,theme,ticket_price
      */
-    @RequestMapping("/selectByTitleWeekdend")
+    @RequestMapping("/selectByTitleOrCityWeekdend")
     @ResponseBody
-    public List<ScenicSpot> selectByTitleWeekdend(){
-        List<ScenicSpot> scenicSpotList = scenicSpotService.selectByTitle("鹅泉");
+    public List<ScenicSpot> selectByTitleOrCityWeekdend(String jd_search_input){
+        System.out.println("搜索的城市名称/景点标题："+jd_search_input);
+        List<ScenicSpot> scenicSpotList = scenicSpotService.selectByTitle(jd_search_input);
+        System.out.println(scenicSpotList);
+        if (scenicSpotList.size() == 0){//根据标题找不到
+            scenicSpotList = scenicSpotService.selectByCity(jd_search_input);
+        }
         return scenicSpotList;
     }
 
