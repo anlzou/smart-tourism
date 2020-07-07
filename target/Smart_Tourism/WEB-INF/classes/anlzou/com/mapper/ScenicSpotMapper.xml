@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="anlzou.com.mapper.ScenicSpotMapper">
+    <resultMap id="BaseResultMap" type="anlzou.com.entity.ScenicSpot">
+        <id column="title" property="title" jdbcType="VARCHAR"/>
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="theme" property="theme" jdbcType="VARCHAR"/>
+        <result column="ticket_price" property="ticketPrice" jdbcType="DOUBLE"/>
+        <result column="ticket_total" property="ticketTotal" jdbcType="INTEGER"/>
+        <result column="ticket_surplus" property="ticketSurplus" jdbcType="INTEGER"/>
+        <result column="stars" property="stars" jdbcType="INTEGER"/>
+        <result column="open_for_business" property="openForBusiness" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="anlzou.com.entity.ScenicSpotWithBLOBs" extends="BaseResultMap">
+        <result column="introduce" property="introduce" jdbcType="LONGVARCHAR"/>
+        <result column="traffic_guide" property="trafficGuide" jdbcType="LONGVARCHAR"/>
+        <result column="open_time" property="openTime" jdbcType="LONGVARCHAR"/>
+        <result column="ticket_information" property="ticketInformation" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    title, id, address, city, theme, ticket_price, ticket_total, ticket_surplus, stars, 
+    open_for_business
+  </sql>
+    <sql id="Blob_Column_List">
+    introduce, traffic_guide, open_time, ticket_information
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="anlzou.com.entity.ScenicSpotKey">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from scenic_spot
+        where title = #{title,jdbcType=VARCHAR}
+        and id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="anlzou.com.entity.ScenicSpotKey">
+    delete from scenic_spot
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="anlzou.com.entity.ScenicSpotWithBLOBs">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into scenic_spot (title, address, city,
+        theme, ticket_price, ticket_total,
+        ticket_surplus, stars, open_for_business,
+        introduce, traffic_guide, open_time,
+        ticket_information)
+        values (#{title,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+        #{theme,jdbcType=VARCHAR}, #{ticketPrice,jdbcType=DOUBLE}, #{ticketTotal,jdbcType=INTEGER},
+        #{ticketSurplus,jdbcType=INTEGER}, #{stars,jdbcType=INTEGER}, #{openForBusiness,jdbcType=VARCHAR},
+        #{introduce,jdbcType=LONGVARCHAR}, #{trafficGuide,jdbcType=LONGVARCHAR}, #{openTime,jdbcType=LONGVARCHAR},
+        #{ticketInformation,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="anlzou.com.entity.ScenicSpotWithBLOBs">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into scenic_spot
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                title,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="theme != null">
+                theme,
+            </if>
+            <if test="ticketPrice != null">
+                ticket_price,
+            </if>
+            <if test="ticketTotal != null">
+                ticket_total,
+            </if>
+            <if test="ticketSurplus != null">
+                ticket_surplus,
+            </if>
+            <if test="stars != null">
+                stars,
+            </if>
+            <if test="openForBusiness != null">
+                open_for_business,
+            </if>
+            <if test="introduce != null">
+                introduce,
+            </if>
+            <if test="trafficGuide != null">
+                traffic_guide,
+            </if>
+            <if test="openTime != null">
+                open_time,
+            </if>
+            <if test="ticketInformation != null">
+                ticket_information,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="theme != null">
+                #{theme,jdbcType=VARCHAR},
+            </if>
+            <if test="ticketPrice != null">
+                #{ticketPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="ticketTotal != null">
+                #{ticketTotal,jdbcType=INTEGER},
+            </if>
+            <if test="ticketSurplus != null">
+                #{ticketSurplus,jdbcType=INTEGER},
+            </if>
+            <if test="stars != null">
+                #{stars,jdbcType=INTEGER},
+            </if>
+            <if test="openForBusiness != null">
+                #{openForBusiness,jdbcType=VARCHAR},
+            </if>
+            <if test="introduce != null">
+                #{introduce,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="trafficGuide != null">
+                #{trafficGuide,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="openTime != null">
+                #{openTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ticketInformation != null">
+                #{ticketInformation,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="anlzou.com.entity.ScenicSpotWithBLOBs">
+        update scenic_spot
+        <set>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="theme != null">
+                theme = #{theme,jdbcType=VARCHAR},
+            </if>
+            <if test="ticketPrice != null">
+                ticket_price = #{ticketPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="ticketTotal != null">
+                ticket_total = #{ticketTotal,jdbcType=INTEGER},
+            </if>
+            <if test="ticketSurplus != null">
+                ticket_surplus = #{ticketSurplus,jdbcType=INTEGER},
+            </if>
+            <if test="stars != null">
+                stars = #{stars,jdbcType=INTEGER},
+            </if>
+            <if test="openForBusiness != null">
+                open_for_business = #{openForBusiness,jdbcType=VARCHAR},
+            </if>
+            <if test="introduce != null">
+                introduce = #{introduce,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="trafficGuide != null">
+                traffic_guide = #{trafficGuide,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="openTime != null">
+                open_time = #{openTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ticketInformation != null">
+                ticket_information = #{ticketInformation,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where title = #{title,jdbcType=VARCHAR}
+        and id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="anlzou.com.entity.ScenicSpotWithBLOBs">
+    update scenic_spot
+    set address = #{address,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      theme = #{theme,jdbcType=VARCHAR},
+      ticket_price = #{ticketPrice,jdbcType=DOUBLE},
+      ticket_total = #{ticketTotal,jdbcType=INTEGER},
+      ticket_surplus = #{ticketSurplus,jdbcType=INTEGER},
+      stars = #{stars,jdbcType=INTEGER},
+      open_for_business = #{openForBusiness,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=LONGVARCHAR},
+      traffic_guide = #{trafficGuide,jdbcType=LONGVARCHAR},
+      open_time = #{openTime,jdbcType=LONGVARCHAR},
+      ticket_information = #{ticketInformation,jdbcType=LONGVARCHAR}
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="anlzou.com.entity.ScenicSpot">
+    update scenic_spot
+    set address = #{address,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      theme = #{theme,jdbcType=VARCHAR},
+      ticket_price = #{ticketPrice,jdbcType=DOUBLE},
+      ticket_total = #{ticketTotal,jdbcType=INTEGER},
+      ticket_surplus = #{ticketSurplus,jdbcType=INTEGER},
+      stars = #{stars,jdbcType=INTEGER},
+      open_for_business = #{openForBusiness,jdbcType=VARCHAR}
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </update>
+    <!--查询所有内容-->
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *
+            from scenic_spot
+    </select>
+
+    <!--  通过城市名称查询景点信息 title,address,theme,ticket_price -->
+    <select id="selectByCity" resultMap="BaseResultMap" parameterType="java.lang.String" statementType="CALLABLE">
+        {call selectByCity(#{in_city,mode=IN})}
+    </select>
+
+    <!--  通过景点名称查询景点信息 city,address,theme,ticket_price -->
+    <select id="selectByTitle" resultMap="BaseResultMap" parameterType="java.lang.String" statementType="CALLABLE">
+        {call selectByTitle(#{in_title,mode=IN})}
+    </select>
+</mapper>

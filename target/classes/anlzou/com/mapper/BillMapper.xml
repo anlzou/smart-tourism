@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="anlzou.com.mapper.BillMapper" >
+  <resultMap id="BaseResultMap" type="anlzou.com.entity.Bill" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <result column="buy_scenic_spot_TorF" property="buyScenicSpotTorf" jdbcType="VARCHAR" />
+    <result column="order_scenic_spot_TorF" property="orderScenicSpotTorf" jdbcType="VARCHAR" />
+    <result column="buy_hotel_TorF" property="buyHotelTorf" jdbcType="VARCHAR" />
+    <result column="order_hotel_TorF" property="orderHotelTorf" jdbcType="VARCHAR" />
+    <result column="total" property="total" jdbcType="REAL" />
+    <result column="date" property="date" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, buy_scenic_spot_TorF, order_scenic_spot_TorF, buy_hotel_TorF, order_hotel_TorF, 
+    total, date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="anlzou.com.entity.BillKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from bill
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="anlzou.com.entity.BillKey" >
+    delete from bill
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="anlzou.com.entity.Bill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bill (username, buy_scenic_spot_TorF, order_scenic_spot_TorF, 
+      buy_hotel_TorF, order_hotel_TorF, total, 
+      date)
+    values (#{username,jdbcType=VARCHAR}, #{buyScenicSpotTorf,jdbcType=VARCHAR}, #{orderScenicSpotTorf,jdbcType=VARCHAR}, 
+      #{buyHotelTorf,jdbcType=VARCHAR}, #{orderHotelTorf,jdbcType=VARCHAR}, #{total,jdbcType=REAL}, 
+      #{date,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="anlzou.com.entity.Bill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="buyScenicSpotTorf != null" >
+        buy_scenic_spot_TorF,
+      </if>
+      <if test="orderScenicSpotTorf != null" >
+        order_scenic_spot_TorF,
+      </if>
+      <if test="buyHotelTorf != null" >
+        buy_hotel_TorF,
+      </if>
+      <if test="orderHotelTorf != null" >
+        order_hotel_TorF,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="buyScenicSpotTorf != null" >
+        #{buyScenicSpotTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="orderScenicSpotTorf != null" >
+        #{orderScenicSpotTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="buyHotelTorf != null" >
+        #{buyHotelTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="orderHotelTorf != null" >
+        #{orderHotelTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=REAL},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="anlzou.com.entity.Bill" >
+    update bill
+    <set >
+      <if test="buyScenicSpotTorf != null" >
+        buy_scenic_spot_TorF = #{buyScenicSpotTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="orderScenicSpotTorf != null" >
+        order_scenic_spot_TorF = #{orderScenicSpotTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="buyHotelTorf != null" >
+        buy_hotel_TorF = #{buyHotelTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="orderHotelTorf != null" >
+        order_hotel_TorF = #{orderHotelTorf,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=REAL},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="anlzou.com.entity.Bill" >
+    update bill
+    set buy_scenic_spot_TorF = #{buyScenicSpotTorf,jdbcType=VARCHAR},
+      order_scenic_spot_TorF = #{orderScenicSpotTorf,jdbcType=VARCHAR},
+      buy_hotel_TorF = #{buyHotelTorf,jdbcType=VARCHAR},
+      order_hotel_TorF = #{orderHotelTorf,jdbcType=VARCHAR},
+      total = #{total,jdbcType=REAL},
+      date = #{date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+</mapper>

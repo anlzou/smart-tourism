@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="anlzou.com.mapper.OrderOfScenicSpotsMapper" >
+  <resultMap id="BaseResultMap" type="anlzou.com.entity.OrderOfScenicSpots" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <result column="scenic_spot_name" property="scenicSpotName" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="order_date" property="orderDate" jdbcType="TIMESTAMP" />
+    <result column="use_date" property="useDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, scenic_spot_name, price, order_date, use_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="anlzou.com.entity.OrderOfScenicSpotsKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_of_scenic_spots
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="anlzou.com.entity.OrderOfScenicSpotsKey" >
+    delete from order_of_scenic_spots
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="anlzou.com.entity.OrderOfScenicSpots" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_of_scenic_spots (username, scenic_spot_name, price, 
+      order_date, use_date)
+    values (#{username,jdbcType=VARCHAR}, #{scenicSpotName,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, 
+      #{orderDate,jdbcType=TIMESTAMP}, #{useDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="anlzou.com.entity.OrderOfScenicSpots" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_of_scenic_spots
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="scenicSpotName != null" >
+        scenic_spot_name,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="orderDate != null" >
+        order_date,
+      </if>
+      <if test="useDate != null" >
+        use_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicSpotName != null" >
+        #{scenicSpotName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="orderDate != null" >
+        #{orderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useDate != null" >
+        #{useDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="anlzou.com.entity.OrderOfScenicSpots" >
+    update order_of_scenic_spots
+    <set >
+      <if test="scenicSpotName != null" >
+        scenic_spot_name = #{scenicSpotName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="orderDate != null" >
+        order_date = #{orderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useDate != null" >
+        use_date = #{useDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="anlzou.com.entity.OrderOfScenicSpots" >
+    update order_of_scenic_spots
+    set scenic_spot_name = #{scenicSpotName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      order_date = #{orderDate,jdbcType=TIMESTAMP},
+      use_date = #{useDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+</mapper>

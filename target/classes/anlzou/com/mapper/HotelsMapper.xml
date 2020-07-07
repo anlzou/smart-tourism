@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="anlzou.com.mapper.HotelsMapper" >
+  <resultMap id="BaseResultMap" type="anlzou.com.entity.Hotels" >
+    <id column="title" property="title" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="hotels" property="hotels" jdbcType="VARCHAR" />
+    <result column="hotels_price" property="hotelsPrice" jdbcType="VARCHAR" />
+    <result column="tlephone" property="tlephone" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="stars" property="stars" jdbcType="VARCHAR" />
+    <result column="open_for_business" property="openForBusiness" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="anlzou.com.entity.HotelsWithBLOBs" extends="BaseResultMap" >
+    <result column="traffic" property="traffic" jdbcType="LONGVARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    title, id, city, hotels, hotels_price, tlephone, address, stars, open_for_business
+  </sql>
+  <sql id="Blob_Column_List" >
+    traffic, introduce
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="anlzou.com.entity.HotelsKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hotels
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="anlzou.com.entity.HotelsKey" >
+    delete from hotels
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="anlzou.com.entity.HotelsWithBLOBs" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into hotels (title, city, hotels, 
+      hotels_price, tlephone, address, 
+      stars, open_for_business, traffic, 
+      introduce)
+    values (#{title,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{hotels,jdbcType=VARCHAR}, 
+      #{hotelsPrice,jdbcType=VARCHAR}, #{tlephone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{stars,jdbcType=VARCHAR}, #{openForBusiness,jdbcType=VARCHAR}, #{traffic,jdbcType=LONGVARCHAR}, 
+      #{introduce,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="anlzou.com.entity.HotelsWithBLOBs" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into hotels
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="hotels != null" >
+        hotels,
+      </if>
+      <if test="hotelsPrice != null" >
+        hotels_price,
+      </if>
+      <if test="tlephone != null" >
+        tlephone,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="stars != null" >
+        stars,
+      </if>
+      <if test="openForBusiness != null" >
+        open_for_business,
+      </if>
+      <if test="traffic != null" >
+        traffic,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="hotels != null" >
+        #{hotels,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelsPrice != null" >
+        #{hotelsPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="tlephone != null" >
+        #{tlephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="stars != null" >
+        #{stars,jdbcType=VARCHAR},
+      </if>
+      <if test="openForBusiness != null" >
+        #{openForBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="traffic != null" >
+        #{traffic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="anlzou.com.entity.HotelsWithBLOBs" >
+    update hotels
+    <set >
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="hotels != null" >
+        hotels = #{hotels,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelsPrice != null" >
+        hotels_price = #{hotelsPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="tlephone != null" >
+        tlephone = #{tlephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="stars != null" >
+        stars = #{stars,jdbcType=VARCHAR},
+      </if>
+      <if test="openForBusiness != null" >
+        open_for_business = #{openForBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="traffic != null" >
+        traffic = #{traffic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="anlzou.com.entity.HotelsWithBLOBs" >
+    update hotels
+    set city = #{city,jdbcType=VARCHAR},
+      hotels = #{hotels,jdbcType=VARCHAR},
+      hotels_price = #{hotelsPrice,jdbcType=VARCHAR},
+      tlephone = #{tlephone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      stars = #{stars,jdbcType=VARCHAR},
+      open_for_business = #{openForBusiness,jdbcType=VARCHAR},
+      traffic = #{traffic,jdbcType=LONGVARCHAR},
+      introduce = #{introduce,jdbcType=LONGVARCHAR}
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="anlzou.com.entity.Hotels" >
+    update hotels
+    set city = #{city,jdbcType=VARCHAR},
+      hotels = #{hotels,jdbcType=VARCHAR},
+      hotels_price = #{hotelsPrice,jdbcType=VARCHAR},
+      tlephone = #{tlephone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      stars = #{stars,jdbcType=VARCHAR},
+      open_for_business = #{openForBusiness,jdbcType=VARCHAR}
+    where title = #{title,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

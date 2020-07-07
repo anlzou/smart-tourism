@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="anlzou.com.mapper.BlackHouseMapper" >
+  <resultMap id="BaseResultMap" type="anlzou.com.entity.BlackHouse" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <result column="time_long" property="timeLong" jdbcType="TIMESTAMP" />
+    <result column="time_start" property="timeStart" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, time_long, time_start
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="anlzou.com.entity.BlackHouseKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from black_house
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="anlzou.com.entity.BlackHouseKey" >
+    delete from black_house
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="anlzou.com.entity.BlackHouse" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into black_house (username, time_long, time_start
+      )
+    values (#{username,jdbcType=VARCHAR}, #{timeLong,jdbcType=TIMESTAMP}, #{timeStart,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="anlzou.com.entity.BlackHouse" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into black_house
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="timeLong != null" >
+        time_long,
+      </if>
+      <if test="timeStart != null" >
+        time_start,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="timeLong != null" >
+        #{timeLong,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeStart != null" >
+        #{timeStart,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="anlzou.com.entity.BlackHouse" >
+    update black_house
+    <set >
+      <if test="timeLong != null" >
+        time_long = #{timeLong,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeStart != null" >
+        time_start = #{timeStart,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="anlzou.com.entity.BlackHouse" >
+    update black_house
+    set time_long = #{timeLong,jdbcType=TIMESTAMP},
+      time_start = #{timeStart,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+</mapper>
