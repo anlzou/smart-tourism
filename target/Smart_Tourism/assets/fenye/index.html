@@ -1,40 +1,129 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>jQuery带搜索跳转分页代码 - 站长素材</title>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/jquery.pagination.css" />
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script src="js/jquery.pagination.min.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font-family: "微软雅黑";
+				background: #eee;
+			}
+			
+			button {
+				display: inline-block;
+				padding: 6px 12px;
+				font-weight: 400;
+				line-height: 1.42857143;
+				text-align: center;
+				vertical-align: middle;
+				cursor: pointer;
+				border: 1px solid transparent;
+				border-radius: 4px;
+				border-color: #28a4c9;
+				color: #fff;
+				background-color: #5bc0de;
+				margin: 20px 20px 0 0;
+			}
+			
+			.box {
+				width: 800px;
+				margin: 100px auto 0;
+				height: 34px;
+			}
+			
+			.page {
+				width: 600px;
+			}
+			
+			.info {
+				width: 200px;
+				height: 34px;
+				line-height: 34px;
+			}
+			
+			.fl {
+				float: left;
+			}
+		</style>
+	</head>
 
-<link rel="stylesheet" href="css/reset.css" />
-<link rel="stylesheet" href="css/pagination.css" />
+	<body>
+		<div class="box">
+			<div id="pagination1" class="page fl"></div>
+			<div class="info fl">
+				<p>当前页数：<span id="current1">1</span></p>
+			</div>
+		</div>
+		<div class="box">
+			<div id="pagination2" class="page fl"></div>
+			<div class="info fl">
+				<p>当前页数：<span id="current2">3</span></p>
+			</div>
+		</div>
+		<div class="box">
+			<div id="pagination3" class="page fl"></div>
+			<div class="info fl">
+				<p>当前页数：<span id="current3">4</span></p>
+			</div>
+			<button id="getPage">getPage</button>
+			<button id="setPage">setPage</button>
+		</div>
 
+		<script>
+			$(function() {
+				$("#pagination1").pagination({
+					currentPage: 1,
+					totalPage: 12,
+					callback: function(current) {
+						$("#current1").text(current)
+					}
+				});
 
-<script type="text/javascript" src="js/lib/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.pagination.js"></script>
+				$("#pagination2").pagination({
+					currentPage: 3,
+					totalPage: 12,
+					isShow: false,
+					count: 6,
+					prevPageText: "< 上一页",
+					nextPageText: "下一页 >",
+					callback: function(current) {
+						$("#current2").text(current)
+					}
+				});
 
+				$("#pagination3").pagination({
+					currentPage: 4,
+					totalPage: 16,
+					isShow: true,
+					count: 7,
+					homePageText: "首页",
+					endPageText: "尾页",
+					prevPageText: "上一页",
+					nextPageText: "下一页",
+					callback: function(current) {
+						$("#current3").text(current)
+					}
+				});
 
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#Pagination").pagination("15");
-});
-</script>
+				$("#getPage").on("click", function() {
+					var info = $("#pagination3").pagination("getPage");
+					alert("当前页数：" + info.current + ",总页数：" + info.total);
+				});
 
-</head>
+				$("#setPage").on("click", function() {
+					$("#pagination3").pagination("setPage", 1, 10);
+				});
+			});
+		</script>
+	</body>
 
-<body>
-
-    <div class="pages">
-        <div id="Pagination"></div>
-        <div class="searchPage">
-          <span class="page-sum">共<strong class="allPage">15</strong>页</span>
-          <span class="page-go">跳转<input type="text">页</span>
-          <a href="javascript:;" class="page-btn">GO</a>
-        </div>
-    </div>
-
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
-</div>
-</body>
 </html>
