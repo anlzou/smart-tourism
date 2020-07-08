@@ -26,27 +26,17 @@ public class WeekendController {
      * @Author：anlzou
      * @Date：2020/7/7 15:55
      * @Descritpion：根据城市名称查询title,address,theme,ticket_price
-    */
-    @RequestMapping("/selectByCityWeekdend")
-    @ResponseBody
-    public List<ScenicSpot> selectByCityWeekdend(){
-        List<ScenicSpot> scenicSpotList = scenicSpotService.selectByCity("百色");
-        return scenicSpotList;
-    }
-
-    /**
-     * @Author：anlzou
-     * @Date：2020/7/7 15:55
-     * @Descritpion：根据城市名称查询title,address,theme,ticket_price
      */
     @RequestMapping("/selectByTitleOrCityWeekdend")
     @ResponseBody
     public List<ScenicSpot> selectByTitleOrCityWeekdend(String jd_search_input){
-        System.out.println("搜索的城市名称/景点标题："+jd_search_input);
-        List<ScenicSpot> scenicSpotList = scenicSpotService.selectByTitle(jd_search_input);
-        System.out.println(scenicSpotList);
-        if (scenicSpotList.size() == 0){//根据标题找不到
+        List<ScenicSpot> scenicSpotList;
+        String strcity = "百色,北海,崇左,防城港,贵港,桂林,河池,贺州,来宾,柳州,南宁,钦州,梧州,玉林";
+        if (strcity.indexOf(jd_search_input) >0){
             scenicSpotList = scenicSpotService.selectByCity(jd_search_input);
+        }else {
+            String title = "%"+jd_search_input+"%";
+            scenicSpotList = scenicSpotService.selectByTitle(title);
         }
         return scenicSpotList;
     }

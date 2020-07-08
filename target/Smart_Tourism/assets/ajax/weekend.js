@@ -1,41 +1,63 @@
-$("#test_xxx").click(function () {
-    alert("hello");
-})
-
-
-//绑定景点搜索点击事件，改变景点图片，星星等信息
-    $("#search").click(function () {
-        // spot_data=$.ajax({url:"/selectByTitleWeekdend",async:false});
-        console.log("ok========")
-        alert("xxx")
-        // console.log(spot_data);
-
-        // var jd_search_input = $("#jd_search_input").val();
-        // for (i = 1; i < 10; i++) {
-        //     //改变景点图片
-        //     var jd_img_num = "#jd_img_" + i;
-        //     $(jd_img_num).attr("src", "${pageContext.request.contextPath}/assets/images/scenic_spots/" + jd_search_input + "/" + data + ".jpg");
-        //
-        //     //改变星星
-        //     var jd_stars= "#jd_stars_"+i;
-        //     for (j = 1; j < data.jd_stars; j++) {
-        //         $(jd_stars).append("<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>");
-        //     }
-        //
-        //     //改变标题
-        //     var jd_title = "#jd_title_"+i;
-        //     $(jd_title).text(data.title);
-        //
-        //     //改变主题
-        //     var jd_theme = "#jd_theme_"+i;
-        //     $(jd_theme).text(data.theme);
-        //
-        //     //改变地址
-        //     var jd_address = "#jd_address_"+i;
-        //     $(jd_address).text(data.address);
-        //
-        //     //改变价格
-        //     var jd_price = "#jd_price_"+i;
-        //     $(jd_price).text("￥ "+data.price);
-        // }
-    })
+// $(function () {
+//     $("#search").click(function () {
+//         var jd_search_input = $("#jd_search_input").val();
+//         spot_data = $.ajax({
+//             type: "post",
+//             dataType: "json",
+//             url: "selectByTitleOrCityWeekdend",
+//             async: false,
+//             data: {jd_search_input: jd_search_input}
+//         });
+//         var json_data = spot_data.responseText.toString();
+//         var obj = JSON.parse(json_data);
+//         var jsonlen = 0;
+//         for (var i in obj) {//遍历json，计算数据条数
+//             jsonlen = jsonlen + 1;
+//             // console.log(obj[i].title + " " + obj[i].city);
+//         }
+//         console.log("条数===:" + jsonlen)
+//
+//         if (jsonlen > 1) {
+//             pagelen = 9;
+//         } else {
+//             pagelen = 1;
+//         }
+//         for (i = 0; i < pagelen; i++) {
+//             if (obj[0].title != null) {
+//                 //改变图片
+//                 var jd_img = "#jd_img_" + (i + 1);
+//                 console.log(jd_img)
+//                 $(jd_img).attr("src", "${pageContext.request.contextPath}/assets/images/scenic_spots/" + obj[i].city + "/" + obj[i].title + ".jpg");
+//
+//                 //改变星星
+//                 var jd_stars = "#jd_stars_" + (i + 1);
+//                 $(jd_stars).empty()//移除原来的星星
+//                 var star = obj[i].stars;
+//                 var jd_stars = "#jd_stars_" + i;
+//                 for (var j = 1; j <= star; j++) {
+//                     $(jd_stars).append("<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>");
+//                 }
+//
+//                 // //改变标题
+//                 var jd_title = "#jd_title_" + (i + 1);
+//                 $(jd_title).text(obj[i].title);
+//
+//                 // //改变主题
+//                 var theme = obj[i].theme;
+//                 if (theme == "NA") {
+//                     theme = "未知";
+//                 }
+//                 var jd_theme = "#jd_theme_" + (i + 1);
+//                 $(jd_theme).text(theme);
+//
+//                 // //改变地址
+//                 var jd_address = "#jd_address_" + (i + 1);
+//                 $(jd_address).text(obj[i].address);
+//
+//                 // //改变价格
+//                 var jd_price = "#jd_price_" + (i + 1);
+//                 $(jd_price).text("￥ " + obj[i].ticketPrice);
+//             }
+//         }
+//     });
+// });

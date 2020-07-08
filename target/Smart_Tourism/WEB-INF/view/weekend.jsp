@@ -304,12 +304,8 @@
                                                                     }
                                                                     console.log("条数===:" + jsonlen)
 
-                                                                    // console.log("=++++++"+obj)
-                                                                    // var obj_copy = obj;
-                                                                    // var jsonStr = JSON.stringify(obj_copy);
-                                                                    // alert(jsonStr);
                                                                     if (jsonlen > 1) {
-                                                                        pagelen = jsonlen;
+                                                                        pagelen = 9;
                                                                     } else {
                                                                         pagelen = 1;
                                                                     }
@@ -350,29 +346,6 @@
                                                                             $(jd_price).text("￥ " + obj[i].ticketPrice);
                                                                         }
                                                                     }
-                                                                    //
-                                                                    //     //改变星星
-                                                                    //     var jd_stars= "#jd_stars_"+i;
-                                                                    //     for (j = 1; j < data.jd_stars; j++) {
-                                                                    //         $(jd_stars).append("<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>");
-                                                                    //     }
-                                                                    //
-                                                                    //     //改变标题
-                                                                    //     var jd_title = "#jd_title_"+i;
-                                                                    //     $(jd_title).text(data.title);
-                                                                    //
-                                                                    //     //改变主题
-                                                                    //     var jd_theme = "#jd_theme_"+i;
-                                                                    //     $(jd_theme).text(data.theme);
-                                                                    //
-                                                                    //     //改变地址
-                                                                    //     var jd_address = "#jd_address_"+i;
-                                                                    //     $(jd_address).text(data.address);
-                                                                    //
-                                                                    //     //改变价格
-                                                                    //     var jd_price = "#jd_price_"+i;
-                                                                    //     $(jd_price).text("￥ "+data.price);
-                                                                    // }
                                                                 })
                                                             </script>
                                                         </form>
