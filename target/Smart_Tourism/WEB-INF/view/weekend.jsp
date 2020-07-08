@@ -276,25 +276,7 @@
                                                         <form>
                                                             <input type="reset" id="search" value="搜索" onclick="searchweeken()"/>
                                                             <script>
-                                                                var pagelen;
-                                                                // $("#search").click(function () {
-                                                                // var jd_search_input = $("#jd_search_input").text();
-                                                                // spot_data = $.ajax({
-                                                                //     type: "post",
-                                                                //     dataType: "json",
-                                                                //     url: "selectByTitleOrCityWeekdend",
-                                                                //     async: false,
-                                                                //     data: {jd_search_input: jd_search_input}
-                                                                // });
-                                                                // var json_data = spot_data.responseText.toString();
-                                                                // var obj = JSON.parse(json_data);
-                                                                // var jsonlen = 0;
-                                                                // for (var i in obj) {//遍历json，计算数据条数
-                                                                //     jsonlen = jsonlen + 1;
-                                                                //     // console.log(obj[i].title + " " + obj[i].city);
-                                                                // }
-                                                                // console.log("条数===:" + jsonlen)
-                                                                // pagelen = Math.ceil(jsonlen / 9);
+                                                                var pagelen = 107;
 
                                                                 function searchweeken(currentpage) {
                                                                     if (currentpage == undefined)
@@ -318,17 +300,6 @@
                                                                         console.log("条数===:" + jsonlen)
                                                                         pagelen = Math.ceil(jsonlen / 9);
                                                                         // console.log("页数===：" + pagelen);
-
-                                                                        // $("#pagination1").pagination({
-                                                                        //     currentPage: 1,
-                                                                        //     totalPage: pagelen,
-                                                                        //     callback: function (current) {
-                                                                        //         $("#current1").text(current)
-                                                                        //         // var currentpage = $("#current1").text();
-                                                                        //         // console.log("当前页===：" + currentpage)
-                                                                        //         // searchweeken(currentpage);
-                                                                        //     }
-                                                                        // });
 
                                                                         if (jsonlen > 1) {
                                                                             var pagejsonlen = 9;
