@@ -50,10 +50,10 @@
 
     <%--  悬浮工具  --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fenye/css/asidenav.css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/fenye/js/asidenav.js"></script>
 </head>
 
 <body>
+<a name="top" id="top"></a>
 <div>
     <svg width="0" height="0">
         <defs>
@@ -65,14 +65,15 @@
         </defs>
     </svg>
     <div class="aside-nav bounceInUp animated" id="aside-nav">
-        <label for="" class="aside-menu" title="按住拖动">菜单</label>
-
-        <a href="javascript:void(0)" title="返回首页" class="menu-item menu-first">首页</a>
-        <a href="javascript:void(0)" title="QQ咨询" class="menu-item menu-second">QQ</a>
-        <a href="javascript:void(0)" title="一键预约" class="menu-item menu-third">预约</a>
-        <a href="javascript:void(0)" title="微信公众号" class="menu-item menu-line menu-fourth">关注<br>微信</a> <!-- *跳到商家微信推广* -->
+        <label class="aside-menu" title="按住拖动">翻页</label>
+<%--        <a href="javascript:void(0)" title="首页" id="xxx" class="menu-item menu-first">首页</a>--%>
+<%--        <a href="javascript:void(0)" title="上一页" class="menu-item menu-second">上一页</a>--%>
+<%--        <a href="javascript:void(0)" title="下一页" class="menu-item menu-third">下一页</a>--%>
+        <a href="#top" title="返回顶部" class="menu-item menu-line menu-fourth">返回<br/>顶部</a> <!-- *跳到商家微信推广* -->
+        <div id="pagination1" class="page fl"></div>
     </div>
 </div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/fenye/js/asidenav.js"></script>
 
 <!--header-->
 <div class="header">
@@ -302,7 +303,7 @@
                                                             <input type="reset" id="search" value="搜索"
                                                                    onclick="searchweekend(1,1)"/>
                                                             <script>
-                                                                var pagelen = 107;
+                                                                var pagelen;
                                                                 var first = 0;
 
                                                                 function searchweekend(currentpage, needajax) {
@@ -649,7 +650,7 @@
         }
     </style>
     <div class="box" style="text-align: center">
-        <div id="pagination1" class="page fl"></div>
+        <div id="pagination2" class="page fl"></div>
         <div class="info fl" hidden>
             <p>当前页数：<span id="current1">1</span></p>
         </div>
