@@ -422,12 +422,17 @@
             <div class="banner-bottom-grids">
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a id="gotoprice_1">
                             <img id="jd_img_1"
                                  src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色通灵大峡谷.jpg"
                                  alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_1">百色通灵大峡谷</h5>
+                                <script>
+                                    $("#gotoprice_1").click(function () {
+                                        location.href='p-single?'+'title' + encodeURI($("#jd_title_1").text())+"address"+encodeURI($("#jd_address_1").text())+"price"+encodeURI($("#jd_price_1").text());
+                                    });
+                                </script>
                                 <div class="rating" id="jd_stars_1">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -444,10 +449,15 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a id="gotoprice_2">
                             <img id="jd_img_2" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/旧州老街.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_2">旧州老街</h5>
+                                <script>
+                                    $("#gotoprice_2").click(function () {
+                                        location.href='p-single?'+'title' + encodeURI($("#jd_title_2").text())+"address"+encodeURI($("#jd_address_2").text())+"price"+encodeURI($("#jd_price_2").text());
+                                    });
+                                </script>
                                 <div class="rating" id="jd_stars_2">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>

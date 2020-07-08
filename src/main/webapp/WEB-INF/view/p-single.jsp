@@ -60,11 +60,11 @@
 						<li><a href="aircraft">飞机</a></li>
 						<li><a href="trains">火车</a></li>
 						<li><a href="bus">巴士</a></li>
+						<li><a href="foods">美食</a></li>
 						<li><a href="hotels">住宿</a></li>
 						<!-- <li><a href="flights-hotels">航班+住房</a></li> -->
 						<li><a href="holidays">节假日</a></li>
 						<li><a href="weekend">周末假期</a></li>
-						<li><a href="foods">美食</a></li>
 						<li><a href="index">热门推荐</a></li>
 					</ul>
 					<div class="clearfix"> </div>
@@ -142,8 +142,8 @@
 				<div class="single-page">
 					<div class="col-md-8 single-gd-lt">
 						<div class="single-pg-hdr">
-							<h2>两江四湖·象山景区</h2>
-							<p> 广西·桂林 广西壮族自治区桂林市桃江码头/南门桥码头
+							<h2 id="title">两江四湖·象山景区</h2>
+							<p id="address"> 广西·桂林 广西壮族自治区桂林市桃江码头/南门桥码头
 							</p>
 							<p>周围: <a href="products">景点</a>|<a href="products-hotels">住房
 								</a></p>
@@ -161,51 +161,6 @@
 								</li>
 								<li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
 									<img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p1.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p1.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p2.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p2.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p1.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p1.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p2.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p2.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p1.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p1.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p2.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p2.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p1.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p1.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p2.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p2.jpg" alt="" />
-								</li>
-								<li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
-									<img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt="" />
 								</li>
 							</ul>
 						</div>
@@ -236,7 +191,24 @@
 								</script>
 							</div>
 							<div class="sp-bor-btn text-right">
-								<h4><span>$8,750</span> $4,850</h4>
+								<h4 ><span id="price">¥8,750</span> <x id="price_now">¥50</x></h4>
+
+								<script>
+									var loc = location.href;
+									var n1 = loc.indexOf('title');
+									var n2 = loc.indexOf('address')
+									var n3 = loc.indexOf('price')
+									var len_href = loc.length;
+									var txt_title = decodeURI(loc.substr(n1+5,n2-n1-5));
+									var txt_address = decodeURI(loc.substr(n2+7,n3-n2-7));
+									var txt_price = decodeURI(loc.substr(n3+5,len_href-n3));
+									var price_now = parseInt(txt_price.substr(2,txt_price.length))
+
+									$("#title").text(txt_title)
+									$("#address").text(txt_address);
+									$("#price").text(txt_price);
+									$("#price_now").text(price_now-1*txt_price.length);
+								</script>
 								<p class="best-pri">现价</p>
 								<a class="best-btn" href="booking">现在预定</a>
 							</div>
