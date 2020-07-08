@@ -258,7 +258,7 @@
                                                         <form>
 																<span class="glyphicon glyphicon-map-marker"
                                                                       aria-hidden="true"></span>
-                                                            <input type="text" placeholder="城市、景点"
+                                                            <input type="text" placeholder="城市、景点；点击搜索"
                                                                    class="typeahead1 input-md form-control tt-input"
                                                                    required="" id="jd_search_input">
                                                         </form>
@@ -300,7 +300,7 @@
                                                 <li class="span1_of_3">
                                                     <div class="date_btn">
                                                         <form>
-                                                            <input type="reset" id="search" value="搜索"
+                                                            <input type="button" id="search" value="搜索" style="width: 80px; height: 36px"
                                                                    onclick="searchweekend(1,1)"/>
                                                             <script>
                                                                 var pagelen;
@@ -350,7 +350,7 @@
                                                                                 var jd_stars = "#jd_stars_" + (i + 1);
                                                                                 $(jd_stars).empty()//移除原来的星星
                                                                                 var star = obj[(currentpage - 1) * 9 + i].stars;
-                                                                                var jd_stars = "#jd_stars_" + i;
+                                                                                var jd_stars = "#jd_stars_" + (i+1);
                                                                                 for (var j = 1; j <= star; j++) {
                                                                                     $(jd_stars).append("<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>");
                                                                                 }
@@ -424,10 +424,10 @@
                     <div class="weekend-grid">
                         <a href="p-single">
                             <img id="jd_img_1"
-                                 src="${pageContext.request.contextPath}/assets/images/scenic_spots/北海/北海海洋之窗.jpg"
+                                 src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色通灵大峡谷.jpg"
                                  alt=""/>
                             <div class="weekend-grid-info">
-                                <h5 id="jd_title_1">北海海洋之窗</h5>
+                                <h5 id="jd_title_1">百色通灵大峡谷</h5>
                                 <div class="rating" id="jd_stars_1">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -435,9 +435,9 @@
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </div>
-                                <h6 id="jd_address_1"> 广西·北海 北海市四川南路中段</h6>
-                                <h4 id="jd_theme_1">避暑 美食</h4>
-                                <p id="jd_price_1">￥ 100</p>
+                                <h6 id="jd_address_1">广西·百色 靖西县湖润镇新灵村</h6>
+                                <h4 id="jd_theme_1">峡谷 漂流</h4>
+                                <p id="jd_price_1">￥ 85</p>
                             </div>
                         </a>
                     </div>
@@ -445,17 +445,19 @@
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
                         <a href="p-single">
-                            <img id="jd_img_2" src="${pageContext.request.contextPath}/assets/images/w2.jpg" alt=""/>
+                            <img id="jd_img_2" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/旧州老街.jpg" alt=""/>
                             <div class="weekend-grid-info">
-                                <h5 id="jd_title_2">Thailand</h5>
-                                <div class="rating">
+                                <h5 id="jd_title_2">旧州老街</h5>
+                                <div class="rating" id="jd_stars_2">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </div>
-                                <h6 id="jd_address_2">Guest Rating 2.9 out of 5</h6>
-                                <h4 id="jd_theme_2">Prices From</h4>
-                                <p id="jd_price_2">$ 190</p>
+                                <h6 id="jd_address_2">广西·百色</h6>
+                                <h4 id="jd_theme_2">未知</h4>
+                                <p id="jd_price_2">￥ 111</p>
                             </div>
                         </a>
                     </div>
@@ -463,79 +465,19 @@
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
                         <a href="p-single">
-                            <img id="jd_img_3" src="${pageContext.request.contextPath}/assets/images/w3.jpg" alt=""/>
+                            <img id="jd_img_3" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/古龙山峡谷群漂流.jpg" alt=""/>
                             <div class="weekend-grid-info">
-                                <h5 id="jd_title_3">Lanzarote</h5>
-                                <div class="rating">
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                </div>
-                                <h6 id="jd_address_3">Guest Rating 3.5 out of 5</h6>
-                                <h4 id="jd_theme_3">Prices From</h4>
-                                <p id="jd_price_3">$ 420</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="banner-bottom-grids">
-                <div class="col-md-4 weekend-grids">
-                    <div class="weekend-grid">
-                        <a href="p-single">
-                            <img id="jd_img_4" src="${pageContext.request.contextPath}/assets/images/w4.jpg" alt=""/>
-                            <div class="weekend-grid-info">
-                                <h5 id="jd_title_4">France</h5>
-                                <div class="rating">
+                                <h5 id="jd_title_3">古龙山峡谷群漂流</h5>
+                                <div class="rating" id="jd_stars_3">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </div>
-                                <h6 id="jd_address_4">Guest Rating 3 out of 5</h6>
-                                <h4 id="jd_theme_4">Prices From</h4>
-                                <p id="jd_price_4">$ 370</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 weekend-grids">
-                    <div class="weekend-grid">
-                        <a href="p-single">
-                            <img id="jd_img_5" src="${pageContext.request.contextPath}/assets/images/w1.jpg" alt=""/>
-                            <div class="weekend-grid-info">
-                                <h5 id="jd_title_5">Dubai</h5>
-                                <div class="rating">
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                </div>
-                                <h6 id="jd_address_5">Guest Rating 4.1 out of 5</h6>
-                                <h4 id="jd_theme_5">Prices From</h4>
-                                <p id="jd_price_5">$ 500</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 weekend-grids">
-                    <div class="weekend-grid">
-                        <a href="p-single">
-                            <img id="jd_img_6" src="${pageContext.request.contextPath}/assets/images/w2.jpg" alt=""/>
-                            <div class="weekend-grid-info">
-                                <h5 id="jd_title_6">Thailand</h5>
-                                <div class="rating">
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                </div>
-                                <h6 id="jd_address_6">Guest Rating 2.9 out of 5</h6>
-                                <h4 id="jd_theme_6">Prices From</h4>
-                                <p id="jd_price_6">$ 190</p>
+                                <h6 id="jd_address_3">广西·百色 百色靖西古龙山峡谷群风景区</h6>
+                                <h4 id="jd_theme_3">避暑</h4>
+                                <p id="jd_price_3">￥ 75</p>
                             </div>
                         </a>
                     </div>
@@ -546,18 +488,19 @@
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
                         <a href="p-single">
-                            <img id="jd_img_7" src="${pageContext.request.contextPath}/assets/images/w3.jpg" alt=""/>
+                            <img id="jd_img_4" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/鹅泉.jpg" alt=""/>
                             <div class="weekend-grid-info">
-                                <h5 id="jd_title_7">Lanzarote</h5>
-                                <div class="rating">
+                                <h5 id="jd_title_4">鹅泉</h5>
+                                <div class="rating" id="jd_stars_4">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </div>
-                                <h6 id="jd_address_7">Guest Rating 3.5 out of 5</h6>
-                                <h4 id="jd_theme_7">Prices From</h4>
-                                <p id="jd_price_7">$ 420</p>
+                                <h6 id="jd_address_4">广西·百色 百色市靖西县城东路902号</h6>
+                                <h4 id="jd_theme_4">未知</h4>
+                                <p id="jd_price_4">￥ 100</p>
                             </div>
                         </a>
                     </div>
@@ -565,19 +508,16 @@
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
                         <a href="p-single">
-                            <img id="jd_img_8" src="${pageContext.request.contextPath}/assets/images/w4.jpg" alt=""/>
+                            <img id="jd_img_5" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/平果鸳鸯滩漂流景区.jpg" alt=""/>
                             <div class="weekend-grid-info">
-                                <h5 id="jd_title_8">France</h5>
-                                <div class="rating">
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <h5 id="jd_title_5">平果鸳鸯滩漂流景区</h5>
+                                <div class="rating" id="jd_stars_5">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </div>
-                                <h6 id="jd_address_8">Guest Rating 3 out of 5</h6>
-                                <h4 id="jd_theme_8">Prices From</h4>
-                                <p id="jd_price_8">$ 370</p>
+                                <h6 id="jd_address_5">广西·百色 广西壮族自治区百色市平果县平新路左二巷5号</h6>
+                                <h4 id="jd_theme_5">漂流 避暑</h4>
+                                <p id="jd_price_5">￥ 60</p>
                             </div>
                         </a>
                     </div>
@@ -585,19 +525,72 @@
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
                         <a href="p-single">
-                            <img id="jd_img_9" src="${pageContext.request.contextPath}/assets/images/w1.jpg" alt=""/>
+                            <img id="jd_img_6" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色旧州.jpg" alt=""/>
                             <div class="weekend-grid-info">
-                                <h5 id="jd_title_9">Dubai</h5>
-                                <div class="rating">
+                                <h5 id="jd_title_6">百色旧州</h5>
+                                <div class="rating" id="jd_stars_6">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </div>
+                                <h6 id="jd_address_6">广西·百色 百色市靖西县城东路902号</h6>
+                                <h4 id="jd_theme_6">古城 民居</h4>
+                                <p id="jd_price_6">￥ 35</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="banner-bottom-grids">
+                <div class="col-md-4 weekend-grids">
+                    <div class="weekend-grid">
+                        <a href="p-single">
+                            <img id="jd_img_7" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/大王岭漂流.jpg" alt=""/>
+                            <div class="weekend-grid-info">
+                                <h5 id="jd_title_7">大王岭漂流</h5>
+                                <div class="rating" id="jd_stars_7">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </div>
+                                <h6 id="jd_address_7">广西·百色 中国广西壮族自治区百色市大楞乡境内</h6>
+                                <h4 id="jd_theme_7">森林 峡谷</h4>
+                                <p id="jd_price_7">￥ 138</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 weekend-grids">
+                    <div class="weekend-grid">
+                        <a href="p-single">
+                            <img id="jd_img_8" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/渠洋湖.jpg" alt=""/>
+                            <div class="weekend-grid-info">
+                                <h5 id="jd_title_8">渠洋湖</h5>
+                                <div class="rating" id="jd_stars_8">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </div>
-                                <h6 id="jd_address_9">Guest Rating 4.1 out of 5</h6>
-                                <h4 id="jd_theme_9">Prices From</h4>
-                                <p id="jd_price_9">$ 500</p>
+                                <h6 id="jd_address_8">广西·百色 广西省百色市靖西县城西北方向</h6>
+                                <h4 id="jd_theme_8">湖泊</h4>
+                                <p id="jd_price_8">￥ 58</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 weekend-grids">
+                    <div class="weekend-grid">
+                        <a href="p-single">
+                            <img id="jd_img_9" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色澄碧湖.jpg" alt=""/>
+                            <div class="weekend-grid-info">
+                                <h5 id="jd_title_9">百色澄碧湖</h5>
+                                <div class="rating" id="jd_stars_9">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </div>
+                                <h6 id="jd_address_9">广西·百色 广西省百色市城东北七里处</h6>
+                                <h4 id="jd_theme_9">森林 湖泊</h4>
+                                <p id="jd_price_9">￥ 118</p>
                             </div>
                         </a>
                     </div>
