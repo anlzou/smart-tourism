@@ -1,129 +1,39 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh-hans-cn">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="Rin">
+<title></title>
 
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<link rel="stylesheet" href="css/jquery.pagination.css" />
-		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-		<script src="js/jquery.pagination.min.js"></script>
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			
-			body {
-				font-family: "微软雅黑";
-				background: #eee;
-			}
-			
-			button {
-				display: inline-block;
-				padding: 6px 12px;
-				font-weight: 400;
-				line-height: 1.42857143;
-				text-align: center;
-				vertical-align: middle;
-				cursor: pointer;
-				border: 1px solid transparent;
-				border-radius: 4px;
-				border-color: #28a4c9;
-				color: #fff;
-				background-color: #5bc0de;
-				margin: 20px 20px 0 0;
-			}
-			
-			.box {
-				width: 800px;
-				margin: 100px auto 0;
-				height: 34px;
-			}
-			
-			.page {
-				width: 600px;
-			}
-			
-			.info {
-				width: 200px;
-				height: 34px;
-				line-height: 34px;
-			}
-			
-			.fl {
-				float: left;
-			}
-		</style>
-	</head>
+<link rel="stylesheet" href="css/asidenav.css">
 
-	<body>
-		<div class="box">
-			<div id="pagination1" class="page fl"></div>
-			<div class="info fl">
-				<p>当前页数：<span id="current1">1</span></p>
-			</div>
-		</div>
-		<div class="box">
-			<div id="pagination2" class="page fl"></div>
-			<div class="info fl">
-				<p>当前页数：<span id="current2">3</span></p>
-			</div>
-		</div>
-		<div class="box">
-			<div id="pagination3" class="page fl"></div>
-			<div class="info fl">
-				<p>当前页数：<span id="current3">4</span></p>
-			</div>
-			<button id="getPage">getPage</button>
-			<button id="setPage">setPage</button>
-		</div>
+</head>
+<body style="background: black;">
 
-		<script>
-			$(function() {
-				$("#pagination1").pagination({
-					currentPage: 1,
-					totalPage: 12,
-					callback: function(current) {
-						$("#current1").text(current)
-					}
-				});
+<div>
+    <svg width="0" height="0">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+            </filter>
+        </defs>
+    </svg>
+    <div class="aside-nav bounceInUp animated" id="aside-nav">
+        <label for="" class="aside-menu" title="按住拖动">菜单</label>
 
-				$("#pagination2").pagination({
-					currentPage: 3,
-					totalPage: 12,
-					isShow: false,
-					count: 6,
-					prevPageText: "< 上一页",
-					nextPageText: "下一页 >",
-					callback: function(current) {
-						$("#current2").text(current)
-					}
-				});
+        <a href="javascript:void(0)" title="返回首页" class="menu-item menu-first">首页</a>
+        <a href="javascript:void(0)" title="QQ咨询" class="menu-item menu-second">QQ</a>
+        <a href="javascript:void(0)" title="一键预约" class="menu-item menu-third">预约</a>
+        <a href="javascript:void(0)" title="微信公众号" class="menu-item menu-line menu-fourth">关注<br>微信</a> <!-- *跳到商家微信推广* -->
+    </div>
+</div>    
 
-				$("#pagination3").pagination({
-					currentPage: 4,
-					totalPage: 16,
-					isShow: true,
-					count: 7,
-					homePageText: "首页",
-					endPageText: "尾页",
-					prevPageText: "上一页",
-					nextPageText: "下一页",
-					callback: function(current) {
-						$("#current3").text(current)
-					}
-				});
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/asidenav.js"></script>
 
-				$("#getPage").on("click", function() {
-					var info = $("#pagination3").pagination("getPage");
-					alert("当前页数：" + info.current + ",总页数：" + info.total);
-				});
-
-				$("#setPage").on("click", function() {
-					$("#pagination3").pagination("setPage", 1, 10);
-				});
-			});
-		</script>
-	</body>
-
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
 </html>
