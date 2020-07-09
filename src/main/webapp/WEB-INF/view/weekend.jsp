@@ -303,7 +303,7 @@
                                                             <input type="button" id="search" value="搜索" style="width: 80px; height: 36px"
                                                                    onclick="searchweekend(1,1)"/>
                                                             <script>
-                                                                var pagelen;
+                                                                var pagelen = 107;
                                                                 var first = 0;
 
                                                                 function searchweekend(currentpage, needajax) {
