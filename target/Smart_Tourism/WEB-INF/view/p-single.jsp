@@ -257,8 +257,6 @@
                     data: {jd_title: jd_title}
                 });
 
-                console.log(spot_data);
-
                 var json_data = spot_data.responseText;
                 var obj = JSON.parse(json_data);
 

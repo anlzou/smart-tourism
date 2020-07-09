@@ -61,10 +61,8 @@ public class WeekendController {
     @RequestMapping("/SelectSPByTitle")
     @ResponseBody
     public List<ScenicSpot> selectSPByTitle(String jd_title){
-        System.out.println(jd_title);
         List<ScenicSpot> scenicSpotList;
         scenicSpotList = scenicSpotService.selectSPByTitle(jd_title);
-        System.out.println(scenicSpotList);
         return scenicSpotList;
     }
 }
