@@ -28,4 +28,9 @@ public class ScenicSpotServiceImpl implements ScenicSpotService {
     public List<ScenicSpot> selectByTitle(String in_title) {
         return scenicSpotMapper.selectByTitle(in_title);
     }
+
+    @Override
+    public List<ScenicSpot> selectSPByTitle(String in_title) {
+        return scenicSpotMapper.selectSPByTitle(in_title);
+    }
 }

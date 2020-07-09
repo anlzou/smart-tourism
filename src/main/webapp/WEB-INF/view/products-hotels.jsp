@@ -317,12 +317,12 @@
 							<div class="product-right-top">
 								<div class="p-left">
 									<div class="p-right-img">
-										<a href="p-single"> </a>
+										<a href="hotel-single"> </a>
 									</div>
 								</div>
 								<div class="p-right">
 									<div class="col-md-6 p-right-left">
-										<a href="p-single">名称</a>
+										<a href="hotel-single">名称</a>
 										<div class="p-right-price">
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -346,12 +346,12 @@
 							<div class="product-right-top">
 								<div class="p-left">
 									<div class="p-right-img p-right-img1">
-										<a href="p-single"> </a>
+										<a href="hotel-single"> </a>
 									</div>
 								</div>
 								<div class="p-right">
 									<div class="col-md-6 p-right-left">
-										<a href="p-single">名称</a>
+										<a href="hotel-single">名称</a>
 										<div class="p-right-price">
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -375,12 +375,12 @@
 							<div class="product-right-top">
 								<div class="p-left">
 									<div class="p-right-img p-right-img3">
-										<a href="p-single"> </a>
+										<a href="hotel-single"> </a>
 									</div>
 								</div>
 								<div class="p-right">
 									<div class="col-md-6 p-right-left">
-										<a href="p-single">名称</a>
+										<a href="hotel-single">名称</a>
 										<div class="p-right-price">
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -404,12 +404,12 @@
 							<div class="product-right-top">
 								<div class="p-left">
 									<div class="p-right-img p-right-img4">
-										<a href="p-single"> </a>
+										<a href="hotel-single"> </a>
 									</div>
 								</div>
 								<div class="p-right">
 									<div class="col-md-6 p-right-left">
-										<a href="p-single">名称</a>
+										<a href="hotel-single">名称</a>
 										<div class="p-right-price">
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -433,12 +433,12 @@
 							<div class="product-right-top">
 								<div class="p-left">
 									<div class="p-right-img p-right-img5">
-										<a href="p-single"> </a>
+										<a href="hotel-single"> </a>
 									</div>
 								</div>
 								<div class="p-right">
 									<div class="col-md-6 p-right-left">
-										<a href="p-single">名称</a>
+										<a href="hotel-single">名称</a>
 										<div class="p-right-price">
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -462,12 +462,12 @@
 							<div class="product-right-top">
 								<div class="p-left">
 									<div class="p-right-img p-right-img6">
-										<a href="p-single"> </a>
+										<a href="hotel-single"> </a>
 									</div>
 								</div>
 								<div class="p-right">
 									<div class="col-md-6 p-right-left">
-										<a href="p-single">名称</a>
+										<a href="hotel-single">名称</a>
 										<div class="p-right-price">
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>

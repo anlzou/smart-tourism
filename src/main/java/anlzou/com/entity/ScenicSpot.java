@@ -17,6 +17,16 @@ public class ScenicSpot extends ScenicSpotKey {
 
     private String openForBusiness;
 
+    private String openTime;
+
+    public String getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(String openTime) {
+        this.openTime = openTime;
+    }
+
     public String getAddress() {
         return address;
     }

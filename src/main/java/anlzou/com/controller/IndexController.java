@@ -86,6 +86,11 @@ public class IndexController {
         return "p-single";
     }
 
+    @RequestMapping("/hotel-single")
+    public String hotel_single() {
+        return "hotel-single";
+    }
+
     @RequestMapping("/privacy")
     public String privacy() {
         return "privacy";

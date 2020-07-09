@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2020-07-08 19:31:03
+Date: 2020-07-09 22:02:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -900,7 +900,7 @@ CREATE TABLE `scenic_spot` (
   `theme` varchar(255) default NULL COMMENT '景点主题',
   `introduce` text COMMENT '简介',
   `traffic_guide` text COMMENT '交通指引',
-  `open_time` text COMMENT '开放时间',
+  `open_time` varchar(255) default NULL COMMENT '开放时间',
   `ticket_information` text COMMENT '门票信息',
   `ticket_price` double default NULL COMMENT '门票价格',
   `ticket_total` int(11) default NULL COMMENT '门票总量',

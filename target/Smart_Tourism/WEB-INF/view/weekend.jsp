@@ -24,8 +24,8 @@
           media="screen"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/JFFormStyle-1.css"/>
     <!-- js -->
-<%--    <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>--%>
-    <script src="${pageContext.request.contextPath}/assets/fenye/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/assets/fenye/js/jquery.min.js"></script>--%>
     <script src="${pageContext.request.contextPath}/assets/js/modernizr.custom.js"></script>
     <!-- //js -->
     <script type="text/javascript">
@@ -311,7 +311,7 @@
                                                                         currentpage = 1;
                                                                     var jd_search_input = $("#jd_search_input").val();
                                                                     if (needajax != 0 || first == 0) {
-                                                                        spot_data = $.ajax({
+                                                                        spots_data = $.ajax({
                                                                             type: "post",
                                                                             dataType: "json",
                                                                             url: "selectByTitleOrCityWeekdend",
@@ -321,7 +321,7 @@
                                                                         first = 1;
                                                                     }
 
-                                                                    var json_data = spot_data.responseText.toString();
+                                                                    var json_data = spots_data.responseText;
                                                                     var obj = JSON.parse(json_data);
                                                                     var jsonlen = 0;
                                                                     for (var i in obj) {//遍历json，计算数据条数
@@ -419,20 +419,22 @@
             <h3>在这里查看我们的各种周末度假优惠！</h3>
         </div>
         <div id="insert_data">
+            <%--   传递jd_title到p-single页面   --%>
+            <script>
+                function jump_PSingle(num) {
+                    var jd_title = "#jd_title_"+num;
+                    window.localStorage.setItem("jd_title",$(jd_title).text());
+                }
+            </script>
             <div class="banner-bottom-grids">
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a id="gotoprice_1">
+                        <a href="p-single" onclick="jump_PSingle(1)">
                             <img id="jd_img_1"
                                  src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色通灵大峡谷.jpg"
                                  alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_1">百色通灵大峡谷</h5>
-                                <script>
-                                    $("#gotoprice_1").click(function () {
-                                        location.href='p-single?'+'title' + encodeURI($("#jd_title_1").text())+"address"+encodeURI($("#jd_address_1").text())+"price"+encodeURI($("#jd_price_1").text());
-                                    });
-                                </script>
                                 <div class="rating" id="jd_stars_1">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -449,15 +451,10 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a id="gotoprice_2">
+                        <a href="p-single" onclick="jump_PSingle(2)">
                             <img id="jd_img_2" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/旧州老街.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_2">旧州老街</h5>
-                                <script>
-                                    $("#gotoprice_2").click(function () {
-                                        location.href='p-single?'+'title' + encodeURI($("#jd_title_2").text())+"address"+encodeURI($("#jd_address_2").text())+"price"+encodeURI($("#jd_price_2").text());
-                                    });
-                                </script>
                                 <div class="rating" id="jd_stars_2">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -474,7 +471,7 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(3)">
                             <img id="jd_img_3" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/古龙山峡谷群漂流.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_3">古龙山峡谷群漂流</h5>
@@ -497,7 +494,7 @@
             <div class="banner-bottom-grids">
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(4)">
                             <img id="jd_img_4" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/鹅泉.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_4">鹅泉</h5>
@@ -517,7 +514,7 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(5)">
                             <img id="jd_img_5" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/平果鸳鸯滩漂流景区.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_5">平果鸳鸯滩漂流景区</h5>
@@ -534,7 +531,7 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(6)">
                             <img id="jd_img_6" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色旧州.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_6">百色旧州</h5>
@@ -554,7 +551,7 @@
             <div class="banner-bottom-grids">
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(7)">
                             <img id="jd_img_7" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/大王岭漂流.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_7">大王岭漂流</h5>
@@ -571,7 +568,7 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(8)">
                             <img id="jd_img_8" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/渠洋湖.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_8">渠洋湖</h5>
@@ -589,7 +586,7 @@
                 </div>
                 <div class="col-md-4 weekend-grids">
                     <div class="weekend-grid">
-                        <a href="p-single">
+                        <a href="p-single" onclick="jump_PSingle(9)">
                             <img id="jd_img_9" src="${pageContext.request.contextPath}/assets/images/scenic_spots/百色/百色澄碧湖.jpg" alt=""/>
                             <div class="weekend-grid-info">
                                 <h5 id="jd_title_9">百色澄碧湖</h5>

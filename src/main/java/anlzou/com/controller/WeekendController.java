@@ -52,4 +52,19 @@ public class WeekendController {
     public List<ScenicSpot> listAlll(){
         return scenicSpotService.listAll();
     }
+
+    /**
+     * @Author：anlzou
+     * @Date：2020/7/9 20:22
+     * @Descritpion：查询某个景点的信息
+    */
+    @RequestMapping("/SelectSPByTitle")
+    @ResponseBody
+    public List<ScenicSpot> selectSPByTitle(String jd_title){
+        System.out.println(jd_title);
+        List<ScenicSpot> scenicSpotList;
+        scenicSpotList = scenicSpotService.selectSPByTitle(jd_title);
+        System.out.println(scenicSpotList);
+        return scenicSpotList;
+    }
 }

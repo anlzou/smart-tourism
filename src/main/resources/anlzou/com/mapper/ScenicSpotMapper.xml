@@ -10,21 +10,21 @@
         <result column="ticket_price" property="ticketPrice" jdbcType="DOUBLE"/>
         <result column="ticket_total" property="ticketTotal" jdbcType="INTEGER"/>
         <result column="ticket_surplus" property="ticketSurplus" jdbcType="INTEGER"/>
+        <result column="open_time" property="openTime" jdbcType="VARCHAR"/>
         <result column="stars" property="stars" jdbcType="INTEGER"/>
         <result column="open_for_business" property="openForBusiness" jdbcType="VARCHAR"/>
     </resultMap>
     <resultMap id="ResultMapWithBLOBs" type="anlzou.com.entity.ScenicSpotWithBLOBs" extends="BaseResultMap">
         <result column="introduce" property="introduce" jdbcType="LONGVARCHAR"/>
         <result column="traffic_guide" property="trafficGuide" jdbcType="LONGVARCHAR"/>
-        <result column="open_time" property="openTime" jdbcType="LONGVARCHAR"/>
         <result column="ticket_information" property="ticketInformation" jdbcType="LONGVARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
-    title, id, address, city, theme, ticket_price, ticket_total, ticket_surplus, stars, 
+    title, id, address, city, theme, ticket_price, ticket_total, ticket_surplus, open_time, stars,
     open_for_business
   </sql>
     <sql id="Blob_Column_List">
-    introduce, traffic_guide, open_time, ticket_information
+    introduce, traffic_guide, ticket_information
   </sql>
     <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="anlzou.com.entity.ScenicSpotKey">
         select
@@ -222,13 +222,18 @@
             from scenic_spot
     </select>
 
-    <!--  通过城市名称查询景点信息 title,address,theme,ticket_price -->
+    <!--  通过城市名称查询景点信息 title,city,address,theme,ticket_price -->
     <select id="selectByCity" resultMap="BaseResultMap" parameterType="java.lang.String" statementType="CALLABLE">
         {call selectByCity(#{in_city,mode=IN})}
     </select>
 
-    <!--  通过景点名称查询景点信息 city,address,theme,ticket_price -->
+    <!--  通过景点名称查询景点信息 title,city,address,theme,ticket_price -->
     <select id="selectByTitle" resultMap="BaseResultMap" parameterType="java.lang.String" statementType="CALLABLE">
         {call selectByTitle(#{in_title,mode=IN})}
+    </select>
+
+    <!--  通过景点名称查询某个景点的所有信息-->
+    <select id="selectSPByTitle" resultMap="BaseResultMap" parameterType="java.lang.String" statementType="CALLABLE">
+        {call sp_SelectAll_scenic_spot(#{in_title,mode=IN})}
     </select>
 </mapper>
