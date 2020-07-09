@@ -32,7 +32,7 @@ public class WeekendController {
     public List<ScenicSpot> selectByTitleOrCityWeekdend(String jd_search_input){
         List<ScenicSpot> scenicSpotList;
         String strcity = "百色,北海,崇左,防城港,贵港,桂林,河池,贺州,来宾,柳州,南宁,钦州,梧州,玉林";
-        if (strcity.indexOf(jd_search_input) >0){
+        if (strcity.indexOf(jd_search_input) != -1){
             scenicSpotList = scenicSpotService.selectByCity(jd_search_input);
         }else {
             String title = "%"+jd_search_input+"%";
