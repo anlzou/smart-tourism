@@ -1,6 +1,6 @@
 # 数据库
 ## MySQL转储文件（备份）
-### 使用
+### 使用方法
 新建`sparks-of-fire`MySQL数据库，运行`create_table&data&proedure.sql`文件。
 
 ### 内容
