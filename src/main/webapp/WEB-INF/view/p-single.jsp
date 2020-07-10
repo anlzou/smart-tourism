@@ -151,22 +151,72 @@
                 <div class="col-md-8 single-gd-lt">
                     <div class="single-pg-hdr">
                         <div>
-                            <h2 id="title">两江四湖·象山景区</h2>
-                            <p style="float: left" id="theme">主题：</p>
-                                <p style="float: right" id="open_time">开放时间：</p>
+                            <h2 id="title" style="float: left">两江四湖·象山景区</h2>
+                            <p style="float: right">周围: <a href="products">景点</a>|<a href="products-hotels">住房
+                            </a></p>
+                            <p style="clear:right;float: left" id="theme">主题：</p>
+                            <p style="float: right" id="open_time">开放时间：</p>
                         </div>
-                            <p id="address" style="clear: right"> 广西·桂林 广西壮族自治区桂林市桃江码头/南门桥码头
+                        <p id="address" style="clear:right;float: left"> 广西·桂林 广西壮族自治区桂林市桃江码头/南门桥码头
                         </p>
-                        <p>周围: <a href="products">景点</a>|<a href="products-hotels">住房
-                        </a></p>
+                        <p style="float: right">电话：12345678901</p><br><br><br><br><br>
                     </div>
-                    <div class="flexslider">
+                    <br>
+                    <div style="clear: right" class="flexslider">
                         <ul class="slides">
                             <li id="jd_img1" data-thumb="${pageContext.request.contextPath}/assets/images/p1.jpg">
                                 <img id="jd_img2" src="${pageContext.request.contextPath}/assets/images/p1.jpg" alt=""/>
                             </li>
                             <li data-thumb="${pageContext.request.contextPath}/assets/images/p2.jpg">
                                 <img src="${pageContext.request.contextPath}/assets/images/p2.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
+                            </li>
+                            <li data-thumb="${pageContext.request.contextPath}/assets/images/p4.jpg">
+                                <img src="${pageContext.request.contextPath}/assets/images/p4.jpg" alt=""/>
                             </li>
                             <li data-thumb="${pageContext.request.contextPath}/assets/images/p3.jpg">
                                 <img src="${pageContext.request.contextPath}/assets/images/p3.jpg" alt=""/>
@@ -195,7 +245,7 @@
                             <a href="#">
                                 <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
                             </a>
-                            <p>特价</p>
+                            <p>余票/特价</p>
                             <script>
                                 $(document).ready(function () {
                                     $('[data-toggle="tooltip"]').tooltip();
@@ -203,16 +253,19 @@
                             </script>
                         </div>
                         <div class="sp-bor-btn text-right">
-                            <h4><span id="price">¥8,750</span>
+                            <h4 style="float: left"><span id="">50</span>
+                                <x id="">250</x>
+                            </h4>
+                            <h4 style="float: right"><span id="price">¥8,750</span>
                                 <x id="price_now">¥50</x>
                             </h4>
-                            <p class="best-pri">现价</p>
+                            <p style="font-size: 20px" class="best-pri">现价</p>
                             <a class="best-btn" href="booking">现在预定</a>
                             <a class="best-btn" href="booking">现在购买</a>
                         </div>
                     </div>
                     <div class="map-gd">
-                        <!-- <iframe src="${pageContext.request.contextPath}/assets/https://map.baidu.com/@12203678.108658038,2749662.587755487,10.31z"></iframe> -->
+                        <%--                        <iframe src="${pageContext.request.contextPath}/assets/https://map.baidu.com/@12203678.108658038,2749662.587755487,10.31z"></iframe>--%>
                     </div>
                     <div class="other-comments">
                         <div class="comments-head">
@@ -220,24 +273,71 @@
                             <p id="stars">4.5/5</p>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="comments-bot">
-                            <p>"Vestibulum ullamcorper condimentum luctus. Ut ullamcorper elit eu auctor commodo."
-                            </p>
-                            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> John Doe</h4>
-                            <div style="text-align: right"><a href="#">详情/更多</a></div>
+                        <%--   滚动评论   --%>
+                        <div class="news-grids">
+                            <div class="news-grids-bottom">
+                                <!-- date -->
+                                <div id="design" class="date">
+                                    <div id="cycler">
+                                        <div class="date-text">
+                                            <a href="single">August 15,2015</a>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                        <div class="date-text">
+                                            <a href="single">July 08,2015</a>
+                                            <p>Nullam non turpis sit amet metus tristique egestas et et orci.</p>
+                                        </div>
+                                        <div class="date-text">
+                                            <a href="single">February 15,2015</a>
+                                            <p>Duis venenatis ac ipsum vel ultricies in placerat quam</p>
+                                        </div>
+                                        <div class="date-text">
+                                            <a href="single">January 15,2015</a>
+                                            <p>Pellentesque ullamcorper fringilla ipsum, ornare dapibus velit volutpat
+                                                sit
+                                                amet.</p>
+                                        </div>
+                                        <div class="date-text">
+                                            <a href="single">September 24,2014</a>
+                                            <p>In lobortis ipsum mi, ac imperdiet elit pellentesque at.</p>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function cycle($item, $cycler) {
+                                            setTimeout(cycle, 2000, $item.next(), $cycler);
+
+                                            $item.slideUp(1000, function () {
+                                                $item.appendTo($cycler).show();
+                                            });
+
+                                        }
+
+                                        cycle($('#cycler div:first'), $('#cycler'));
+                                    </script>
+                                </div>
+                                <!-- //date -->
+                            </div>
                         </div>
-                        <div class="comments-bot">
-                            <p>"Aliquam non purus quis tellus varius egestas ut vitae tellus. Pellentesque non est
-                                ac tortor maximus imperdiet at id quam."</p>
-                            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Luther</h4>
-                            <div style="text-align: right"><a href="#">详情/更多</a></div>
-                        </div>
-                        <div class="comments-bot">
-                            <p>"Vestibulum sapien quam, interdum quis bibendum quis, malesuada a nisi. Proin at
-                                blandit justo."</p>
-                            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Patrick</h4>
-                            <div style="text-align: right"><a href="#">详情/更多</a></div>
-                        </div>
+                        <div style="text-align: left; margin: 10px; float: left"><a href="#">更多/数据分析</a></div>
+                        <div style="text-align: right; margin: 10px; float: right"><a href="#">去评论</a></div>
+                        <%--                        <div class="comments-bot">--%>
+                        <%--                            <p>"Vestibulum ullamcorper condimentum luctus. Ut ullamcorper elit eu auctor commodo."--%>
+                        <%--                            </p>--%>
+                        <%--                            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> John Doe</h4>--%>
+                        <%--                            <div style="text-align: right"><a href="#">详情/更多</a></div>--%>
+                        <%--                        </div>--%>
+                        <%--                        <div class="comments-bot">--%>
+                        <%--                            <p>"Aliquam non purus quis tellus varius egestas ut vitae tellus. Pellentesque non est--%>
+                        <%--                                ac tortor maximus imperdiet at id quam."</p>--%>
+                        <%--                            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Luther</h4>--%>
+                        <%--                            <div style="text-align: right"><a href="#">详情/更多</a></div>--%>
+                        <%--                        </div>--%>
+                        <%--                        <div class="comments-bot">--%>
+                        <%--                            <p>"Vestibulum sapien quam, interdum quis bibendum quis, malesuada a nisi. Proin at--%>
+                        <%--                                blandit justo."</p>--%>
+                        <%--                            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Patrick</h4>--%>
+                        <%--                            <div style="text-align: right"><a href="#">详情/更多</a></div>--%>
+                        <%--                        </div>--%>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -261,7 +361,7 @@
                 var obj = JSON.parse(json_data);
 
                 // console.log("======" + obj[0]);
-                $("#address").text("地址："+obj[0].address);
+                $("#address").text("地址：" + obj[0].address);
                 $("#price").text(obj[0].ticketPrice);
                 $("#price_now").text(Math.ceil(obj[0].ticketPrice * 0.95));
                 $("#stars").text(obj[0].stars + "/5");
