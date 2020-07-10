@@ -21,6 +21,36 @@ public class ScenicSpot extends ScenicSpotKey {
 
     private String tel;
 
+    private String introduce;
+
+    private String trafficGuide;
+
+    private String ticketInformation;
+
+    public String getTicketInformation() {
+        return ticketInformation;
+    }
+
+    public void setTicketInformation(String ticketInformation) {
+        this.ticketInformation = ticketInformation;
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce;
+    }
+
+    public String getTrafficGuide() {
+        return trafficGuide;
+    }
+
+    public void setTrafficGuide(String trafficGuide) {
+        this.trafficGuide = trafficGuide;
+    }
+
     public String getTel() {
         return tel;
     }

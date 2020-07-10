@@ -14,6 +14,9 @@
         <result column="stars" property="stars" jdbcType="INTEGER"/>
         <result column="open_for_business" property="openForBusiness" jdbcType="VARCHAR"/>
         <result column="tel" property="tel" jdbcType="VARCHAR"/>
+        <result column="introduce" property="introduce" jdbcType="LONGVARCHAR"/>
+        <result column="traffic_guide" property="trafficGuide" jdbcType="LONGVARCHAR"/>
+        <result column="ticket_information" property="ticketInformation" jdbcType="LONGVARCHAR"/>
     </resultMap>
     <resultMap id="ResultMapWithBLOBs" type="anlzou.com.entity.ScenicSpotWithBLOBs" extends="BaseResultMap">
         <result column="introduce" property="introduce" jdbcType="LONGVARCHAR"/>
