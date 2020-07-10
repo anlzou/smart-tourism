@@ -19,6 +19,16 @@ public class ScenicSpot extends ScenicSpotKey {
 
     private String openTime;
 
+    private String tel;
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
     public String getOpenTime() {
         return openTime;
     }

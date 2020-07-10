@@ -13,6 +13,7 @@
         <result column="open_time" property="openTime" jdbcType="VARCHAR"/>
         <result column="stars" property="stars" jdbcType="INTEGER"/>
         <result column="open_for_business" property="openForBusiness" jdbcType="VARCHAR"/>
+        <result column="tel" property="tel" jdbcType="VARCHAR"/>
     </resultMap>
     <resultMap id="ResultMapWithBLOBs" type="anlzou.com.entity.ScenicSpotWithBLOBs" extends="BaseResultMap">
         <result column="introduce" property="introduce" jdbcType="LONGVARCHAR"/>
@@ -21,7 +22,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     title, id, address, city, theme, ticket_price, ticket_total, ticket_surplus, open_time, stars,
-    open_for_business
+    open_for_business, tel
   </sql>
     <sql id="Blob_Column_List">
     introduce, traffic_guide, ticket_information

@@ -159,7 +159,7 @@
                         </div>
                         <p id="address" style="clear:right;float: left"> 广西·桂林 广西壮族自治区桂林市桃江码头/南门桥码头
                         </p>
-                        <p style="float: right">电话：12345678901</p><br><br><br><br><br>
+                        <p style="float: right" id="tel">电话：12345678901</p><br><br><br><br><br>
                     </div>
                     <br>
                     <div style="clear: right" class="flexslider">
@@ -253,8 +253,8 @@
                             </script>
                         </div>
                         <div class="sp-bor-btn text-right">
-                            <h4 style="float: left"><span id="">50</span>
-                                <x id="">250</x>
+                            <h4 style="float: left"><span id="ticket_sale">50</span>
+                                <x id="ticket_surplus">250</x>
                             </h4>
                             <h4 style="float: right"><span id="price">¥8,750</span>
                                 <x id="price_now">¥50</x>
@@ -357,6 +357,8 @@
                     data: {jd_title: jd_title}
                 });
 
+                console.log(spot_data);
+
                 var json_data = spot_data.responseText;
                 var obj = JSON.parse(json_data);
 
@@ -372,9 +374,21 @@
                     theme = "大自然";
                 $("#theme").text("主题：" + theme);
                 var open_time = obj[0].openTime;
-                if (open_time == ("NA") || "null")
+                var open_for_business = obj[0].openForBusiness;
+                if (open_for_business == null)
+                    open_for_business = "全周";
+                if (open_time == "NA" || null)
                     open_time = "全天开放";
-                $("#open_time").text("开放时间：" + open_time);
+                $("#open_time").text("开放时间："+open_for_business+" " + open_time);
+                var tel = obj[0].tel;
+                if (tel == null)
+                    tel = "123456xxx";
+                $("#tel").text("电话："+tel);
+                var ticket_total = obj[0].ticketTotal;
+                var ticket_surplus = obj[0].ticketSurplus;
+                var ticket_sale = ticket_total-ticket_surplus;
+                $("#ticket_sale").text(ticket_sale);
+                $("#ticket_surplus").text(ticket_surplus);
             </script>
             <!--//single-page-->
         </div>
