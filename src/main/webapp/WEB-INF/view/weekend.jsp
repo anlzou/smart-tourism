@@ -53,6 +53,7 @@
 </head>
 
 <body>
+<%--悬浮工具+分页工具--%>
 <a name="top" id="top"></a>
 <div>
     <svg width="0" height="0">
@@ -74,7 +75,7 @@
     </div>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/fenye/js/asidenav.js"></script>
-
+<%--//悬浮工具+分页工具--%>
 <!--header-->
 <div class="header">
     <div class="container">

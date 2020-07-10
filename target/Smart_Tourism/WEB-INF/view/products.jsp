@@ -31,9 +31,40 @@
 	<!--pop-up-->
 	<script src="${pageContext.request.contextPath}/assets/js/menu_jquery.js"></script>
 	<!--//pop-up-->
+
+	<%--  分页工具  --%>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fenye/css/jquery.pagination.css"/>
+	<script src="${pageContext.request.contextPath}/assets/fenye/js/jquery.pagination.min.js"></script>
+
+	<%--  悬浮工具  --%>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fenye/css/asidenav.css">
 </head>
 
 <body>
+<%--悬浮工具+分页工具--%>
+<a name="top" id="top"></a>
+<div>
+	<svg width="0" height="0">
+		<defs>
+			<filter id="goo">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+				<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+				<feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+			</filter>
+		</defs>
+	</svg>
+	<div class="aside-nav bounceInUp animated" id="aside-nav">
+		<label class="aside-menu" title="按住拖动">翻页</label>
+		<%--        <a href="javascript:void(0)" title="首页" id="xxx" class="menu-item menu-first">首页</a>--%>
+		<%--        <a href="javascript:void(0)" title="上一页" class="menu-item menu-second">上一页</a>--%>
+		<%--        <a href="javascript:void(0)" title="下一页" class="menu-item menu-third">下一页</a>--%>
+		<a href="#top" title="返回顶部" class="menu-item menu-line menu-fourth">返回<br/>顶部</a> <!-- *跳到商家微信推广* -->
+		<div id="pagination1" class="page fl"></div>
+	</div>
+</div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/fenye/js/asidenav.js"></script>
+<%--//悬浮工具+分页工具--%>
+
 	<!--header-->
 	<div class="header">
 		<div class="container">
@@ -60,11 +91,11 @@
 						<li><a href="aircraft">飞机</a></li>
 						<li><a href="trains">火车</a></li>
 						<li><a href="bus">巴士</a></li>
+						<li><a href="foods">美食</a></li>
 						<li><a href="hotels">住宿</a></li>
 						<!-- <li><a href="flights-hotels">航班+住房</a></li> -->
 						<li><a href="holidays">节假日</a></li>
 						<li><a href="weekend">周末假期</a></li>
-						<li><a href="foods">美食</a></li>
 						<li><a href="index">热门推荐</a></li>
 					</ul>
 					<div class="clearfix"> </div>
@@ -141,7 +172,7 @@
 				<div class="product-grids">
 					<div class="col-md-3 product-left">
 						<div class="h-class">
-							<h5>酒店等级</h5>
+							<h5>景点星级</h5>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
@@ -189,125 +220,140 @@
 							</div>
 						</div>
 						<div class="h-class p-day">
-							<h5>每天的价格</h5>
+							<h5>景点价格</h5>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox" checked="checked" data-track="HOT:SR:StarRating:5Star">
-									<span class="p-day-grid"> 不到 $100 (76)</span>
+									<span class="p-day-grid"> 不到 ￥50 (76)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">$100 to $200 (132)</span>
+									<span class="p-day-grid">￥50 到 ￥100 (132)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">$300 to $300 (223)</span>
+									<span class="p-day-grid">￥100 到 ￥200 (223)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">$300 to $400 (84)</span>
+									<span class="p-day-grid">￥200 到 ￥300 (84)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">$500 to $600 (23)</span>
-								</label>
-							</div>
-						</div>
-						<div class="h-class">
-							<h5>地区</h5>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" checked="checked" data-track="HOT:SR:Area">
-									<span class="p-day-grid">伦敦</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">纽约</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">新西兰</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">天使</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">悉尼</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">阿拉格</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">希腊</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">新加坡</span>
-								</label>
-							</div>
-							<div class="hotel-price">
-								<label class="check">
-									<input type="radio" name="hideRegionId" data-track="HOT:SR:Area">
-									<span class="p-day-grid">巴黎</span>
+									<span class="p-day-grid">￥300 到 ￥400+ (23)</span>
 								</label>
 							</div>
 						</div>
 						<div class="h-class p-day">
-							<h5>住宿类型</h5>
+							<h5>景点主题</h5>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox" checked="checked" data-track="HOT:SR:StarRating:5Star">
-									<span class="p-day-grid">度假村 (67)</span>
+									<span class="p-day-grid">峡谷 (67)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">酒店 (84)</span>
+									<span class="p-day-grid">漂流 (84)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">招待所 (24)</span>
+									<span class="p-day-grid">避暑 (24)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">公寓 (34)</span>
+									<span class="p-day-grid">古城 (34)</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
 									<input type="checkbox">
-									<span class="p-day-grid">乡间别墅 (32)</span>
+									<span class="p-day-grid">峡谷 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">森林 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">洞穴 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">湖泊 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">瀑布 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">演出 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">游船 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">故居 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">公园 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">游乐场 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">民居 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">农家乐 (32)</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="checkbox">
+									<span class="p-day-grid">其它 (324)</span>
 								</label>
 							</div>
 						</div>
@@ -493,6 +539,145 @@
 			</div>
 		</div>
 		<!-- //container -->
+		<script>
+			var pagelen = 10;
+			var first = 0;
+
+			function searchweekend(currentpage, needajax) {
+				if (currentpage == undefined)
+					currentpage = 1;
+				var jd_search_input = $("#jd_search_input").val();
+				if (needajax != 0 || first == 0) {
+					spots_data = $.ajax({
+						type: "post",
+						dataType: "json",
+						url: "selectByTitleOrCityWeekdend",
+						async: false,
+						data: {jd_search_input: jd_search_input}
+					});
+					first = 1;
+				}
+
+				var json_data = spots_data.responseText;
+				var obj = JSON.parse(json_data);
+				var jsonlen = 0;
+				for (var i in obj) {//遍历json，计算数据条数
+					jsonlen = jsonlen + 1;
+					// console.log(obj[i].title + " " + obj[i].city);
+				}
+				console.log("条数===:" + jsonlen)
+				pagelen = Math.ceil(jsonlen / 9);
+				// console.log("页数===：" + pagelen);
+
+				if (jsonlen > 1) {
+					var pagejsonlen = 9;
+				} else {
+					pagejsonlen = 1;
+				}
+				console.log("当前页xxxx===：" + currentpage)
+				for (var k = currentpage; k <= pagelen; k++) {
+					for (i = 0; i < pagejsonlen; i++) {
+						if (obj[0].title != null) {
+							//改变图片
+							var jd_img = "#jd_img_" + (i + 1);
+							// console.log("+++++" + obj[(currentpage - 1) * 9 + i].title)
+							$(jd_img).attr("src", "${pageContext.request.contextPath}/assets/images/scenic_spots/" + obj[(currentpage - 1) * 9 + i].city + "/" + obj[(currentpage - 1) * 9 + i].title + ".jpg");
+
+							//改变星星
+							var jd_stars = "#jd_stars_" + (i + 1);
+							$(jd_stars).empty()//移除原来的星星
+							var star = obj[(currentpage - 1) * 9 + i].stars;
+							var jd_stars = "#jd_stars_" + (i+1);
+							for (var j = 1; j <= star; j++) {
+								$(jd_stars).append("<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>");
+							}
+
+							// //改变标题
+							var jd_title = "#jd_title_" + (i + 1);
+							$(jd_title).text(obj[(currentpage - 1) * 9 + i].title);
+
+							// //改变主题
+							var theme = obj[(currentpage - 1) * 9 + i].theme;
+							if (theme == "NA") {
+								theme = "未知";
+							}
+							var jd_theme = "#jd_theme_" + (i + 1);
+							$(jd_theme).text(theme);
+
+							// //改变地址
+							var jd_address = "#jd_address_" + (i + 1);
+							$(jd_address).text(obj[(currentpage - 1) * 9 + i].address);
+
+							// //改变价格
+							var jd_price = "#jd_price_" + (i + 1);
+							$(jd_price).text("￥ " + obj[(currentpage - 1) * 9 + i].ticketPrice);
+						}
+					}
+				}
+			}
+		</script>
+		<%--  分页  --%>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "微软雅黑";
+				background: #eee;
+			}
+
+			button {
+				display: inline-block;
+				padding: 6px 12px;
+				font-weight: 400;
+				line-height: 1.42857143;
+				text-align: center;
+				vertical-align: middle;
+				cursor: pointer;
+				border: 1px solid transparent;
+				border-radius: 4px;
+				border-color: #28a4c9;
+				color: #fff;
+				background-color: #5bc0de;
+				margin: 20px 20px 0 0;
+			}
+
+			.box {
+				width: 800px;
+				margin: 100px auto 0;
+				height: 34px;
+			}
+
+			.page {
+				width: 600px;
+			}
+
+			.fl {
+				float: left;
+			}
+		</style>
+		<div class="box" style="text-align: center">
+			<div id="pagination2" class="page fl"></div>
+			<div class="info fl" hidden>
+				<p>当前页数：<span id="current1">1</span></p>
+			</div>
+		</div>
+		<script>
+			$(function () {
+				$("#pagination1").pagination({
+					currentPage: 1,
+					totalPage: pagelen,
+					callback: function (current) {
+						console.log("总页数：" + pagelen)
+						$("#current1").text(current)
+						var currentpage = $("#current1").text();
+						searchweekend(currentpage, 0);
+					}
+				});
+			});
+		</script>
 	</div>
 	<!-- //banner-bottom -->
 
