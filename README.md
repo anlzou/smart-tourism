@@ -5,12 +5,10 @@
 - [主/开发仓库](https://gitee.com/anlzou/Smart_Tourism)
 - [前端/数据仓库](https://gitee.com/anlzou/Guangxi-smart-Tourism-foreground)
 - [后台仓库](https://gitee.com/anlzou/Guangxi-smart-Tourism-background)
-
-
 - [开发文档/笔记](http://note.youdao.com/noteshare?id=798651ddf3a9035572164d6e301fc91a&sub=0971E834B819437E8FFE0BE6B5C62812)
 
 ## 数据来源
->###[欣欣旅游](https://www.cncn.com/piao/guangxi/) - 广西旅游数据
+>### [欣欣旅游](https://www.cncn.com/piao/guangxi/) - 广西旅游数据
 - 爬虫爬取景点、酒店、~~美食、特产~~等相关信息
     - 景点数据：14个旅游城市，960条数据
     - 酒店数据：701个景点/条数据，小于701\*6个酒店
