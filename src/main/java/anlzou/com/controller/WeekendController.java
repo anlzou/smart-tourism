@@ -32,11 +32,16 @@ public class WeekendController {
     public List<ScenicSpot> selectByTitleOrCityWeekdend(String jd_search_input){
         List<ScenicSpot> scenicSpotList;
         String strcity = "占位,百色,北海,崇左,防城港,贵港,桂林,河池,贺州,来宾,柳州,南宁,钦州,梧州,玉林";
+        System.out.println(jd_search_input);
         if (strcity.indexOf(jd_search_input) > 0){
+            System.out.println("进入查询1");
             scenicSpotList = scenicSpotService.selectByCity(jd_search_input);
+            System.out.println("查询城市成功");
         }else {
+            System.out.println("进入查询2");
             String title = "%"+jd_search_input+"%";
             scenicSpotList = scenicSpotService.selectByTitle(title);
+            System.out.println("查询景点成功");
         }
         return scenicSpotList;
     }
